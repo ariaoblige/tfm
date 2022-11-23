@@ -1,0 +1,15 @@
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\bin\Debug\net6.0\tfm.exe
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\bin\Debug\net6.0\tfm.deps.json
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\bin\Debug\net6.0\tfm.runtimeconfig.json
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\bin\Debug\net6.0\tfm.dll
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\bin\Debug\net6.0\tfm.pdb
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.AssemblyInfo.cs
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.dll
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\refint\tfm.dll
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.pdb
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\tfm.genruntimeconfig.cache
+C:\Users\Usuario\Documents\mther2\gamefolder\projects\ghproj\tfm\obj\Debug\net6.0\ref\tfm.dll
