@@ -234,7 +234,8 @@ namespace mainfile
                     }
                     else
                     {
-                        p.WriteColor("Could not find given directory.", fColor:ConsoleColor.Red);
+                        Console.Clear();
+                        p.WriteColor("Could not find given directory.\n\n", fColor:ConsoleColor.Red);
                     }
                 }},
                 {"open", () => {
