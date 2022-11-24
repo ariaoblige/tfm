@@ -67,7 +67,7 @@ namespace mainfile
                 {"newf", "Creates a new file in the current location"},
                 {"quit", "Quits the program."},
                 {"rename", "Renames a file of your choice."},
-                
+                {"open", "Opens up a file with the associated program."},
             };
             
             
