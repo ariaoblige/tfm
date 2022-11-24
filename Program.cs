@@ -66,6 +66,7 @@ namespace mainfile
                 {"newdir", "Creates a new directory in the current location."},
                 {"newf", "Creates a new file in the current location"},
                 {"quit", "Quits the program."},
+                {"rename", "Renames a file of your choice."},
                 
             };
             
@@ -262,6 +263,49 @@ namespace mainfile
                         p.WriteColor("Something went wrong when opening your file.\n\n", fColor:ConsoleColor.Red);
                     }
                 }},
+                {"rename", () => {
+                    p.WriteColor("Enter a file to rename: ", fColor:ConsoleColor.Blue);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    var file = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    if (File.Exists(curpath+file) || Directory.Exists(curpath+file))
+                    {
+                        p.WriteColor(String.Format("Enter a new name to '{0}': ", file), fColor:ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        var newname = Console.ReadLine();
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        
+                        if (newname != "")
+                        {
+                            try
+                            {
+                                File.Move(curpath+file, curpath+newname);
+                                Console.Clear();
+                                p.WriteColor(String.Format("Successfully renamed file to '{0}'.\n\n", newname), fColor:ConsoleColor.Green);
+                            }
+                            catch
+                            {
+                                try
+                                {
+                                    Directory.Move(curpath+file, curpath+newname);
+                                    Console.Clear();
+                                    p.WriteColor(String.Format("Successfully renamed directory to '{0}'.\n\n", newname), fColor:ConsoleColor.Green);
+                                }
+                                catch
+                                {
+                                    Console.Clear();
+                                    p.WriteColor(String.Format("Something went wrong when renaming '{0}' to '{1}'.\n\n", file, newname), fColor:ConsoleColor.Red);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        p.WriteColor("Could not find such directory/file.\n\n", fColor:ConsoleColor.Red);
+                    }
+                    
+                }}
             };
             
             
