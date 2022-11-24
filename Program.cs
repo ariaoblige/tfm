@@ -66,7 +66,7 @@ namespace mainfile
                 {"newdir", "Creates a new directory in the current location."},
                 {"newf", "Creates a new file in the current location"},
                 {"quit", "Quits the program."},
-                
+                {"open", "Opens up a file with the associated program."},
             };
             
             
