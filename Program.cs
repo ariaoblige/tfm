@@ -36,6 +36,11 @@ namespace mainfile
             var loop = true;    // Variable that validates the loop. If the user types "quit" it'll set to false and close the program.
             Program p = new Program();
             
+            // Move variables.
+            var movepath = "";
+            var moving = false;
+            var movename = "";
+            
             try
             {
                 curpath = Directory.GetCurrentDirectory();
@@ -68,6 +73,10 @@ namespace mainfile
                 {"quit", "Quits the program."},
                 {"rename", "Renames a file of your choice."},
                 {"open", "Opens up a file with the associated program."},
+                {"paste", "Pastes a moving file"},
+                {"move", ""},
+                {"forget", ""},
+                {"copyf", ""},
             };
             
             
@@ -305,7 +314,90 @@ namespace mainfile
                         p.WriteColor("Could not find such directory/file.\n\n", fColor:ConsoleColor.Red);
                     }
                     
-                }}
+                }},
+                {"copyf", () => {
+                    p.WriteColor("Enter a file to copy: ", fColor:ConsoleColor.Blue);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    var file = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    try
+                    {
+                        p.WriteColor("Enter a name to the new file: ", ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        var copy = Console.ReadLine();
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        
+                        File.Copy(curpath+file, curpath+copy);
+                        Console.Clear();
+                        p.WriteColor("File successfully copied. Try ", ConsoleColor.Green);
+                        p.WriteColor("'move' ", ConsoleColor.Magenta);
+                        p.WriteColor("to set a new destiny to this file.\n\n", ConsoleColor.Green);
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        p.WriteColor("Something went wrong when copying the file.\n\n", ConsoleColor.Red);
+                    }
+                }},
+                {"move", () => {
+                    p.WriteColor("Enter a file to move: ", ConsoleColor.Blue);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    movename = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    
+                    if (File.Exists(curpath+movename) || Directory.Exists(curpath+movename))
+                    {
+                        movepath = curpath+movename;
+                        moving = true;
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        p.WriteColor("Could not find that directory/file.\n\n", fColor:ConsoleColor.Red);
+                    }
+                }},
+                {"paste", () => {
+                    if (moving)
+                    {
+                        try
+                        {
+                            Directory.Move(movepath, curpath+movename);
+                            Console.Clear();
+                            moving = false;
+                            movepath = "";
+                            Console.Clear();
+                            p.WriteColor("Successfully moved given directory.\n\n", fColor:ConsoleColor.Green);
+                        }
+                        catch
+                        {
+                            File.Move(movepath, curpath+movename);
+                            moving = false;
+                            movepath = "";
+                            Console.Clear();
+                            p.WriteColor("Successfully moved given file.\n\n", fColor:ConsoleColor.Green);
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        p.WriteColor("No file selected to be moved.\n\n", ConsoleColor.Red);
+                    }
+                }},
+                {"forget", () => {
+                    if (moving)
+                    {
+                        moving = false;
+                        movepath = "";
+                        Console.Clear();
+                        p.WriteColor("Successfully forgot about the moving file.\n\n", ConsoleColor.Green);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        p.WriteColor("No file selected to be moved.\n\n", ConsoleColor.Red);
+                    }
+                }},
             };
             
             
@@ -313,6 +405,10 @@ namespace mainfile
             
             while (loop) // MAIN LOOP
             {
+                if (moving)
+                {
+                    p.WriteColor(String.Format("Moving {0}\n\n", movepath), fColor:ConsoleColor.Yellow);
+                }
                 p.WriteColor(String.Format("{0}\n\n", curpath), fColor:ConsoleColor.Green);
                 p.WriteColor("$ ", fColor: ConsoleColor.Blue);
                 Console.ForegroundColor = ConsoleColor.Yellow;
