@@ -74,9 +74,9 @@ namespace mainfile
                 {"rename", "Renames a file of your choice."},
                 {"open", "Opens up a file with the associated program."},
                 {"paste", "Pastes a moving file"},
-                {"move", ""},
-                {"forget", ""},
-                {"copyf", ""},
+                {"move", "Selects a file to be moved."},
+                {"forget", "Forgets about the file selected with the 'move' command."},
+                {"copyf", "Selects a file and copies it to a new one with a new name."},
             };
             
             
