@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Diagnostics;
 using System.Collections.Generic;
-
+using System.IO.Compression;
 
 namespace mainfile
 {
@@ -398,6 +398,28 @@ namespace mainfile
                         p.WriteColor("No file selected to be moved.\n\n", ConsoleColor.Red);
                     }
                 }},
+                {"extract", () => {
+                    try {
+                        p.WriteColor("Please provide the file name with no extension: ", ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        var filename = Console.ReadLine();
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        
+                        if (File.Exists(curpath+filename+".zip"))
+                        {
+                            Directory.CreateDirectory(curpath+filename);
+                            p.WriteColor("Please wait...", ConsoleColor.Yellow);
+                            ZipFile.ExtractToDirectory(curpath+filename+".zip", curpath+filename);
+                            Console.Clear();
+                            p.WriteColor("Successfully extracted the given file.\n\n", ConsoleColor.Green);
+                        }
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        p.WriteColor("Something went wrong when extracting your file.\n\n", ConsoleColor.Red);
+                    }
+                }}
             };
             
             
